@@ -1,11 +1,198 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Мой первый сайт</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Мой сайт</title>
+
+  <!-- Google Font (замени на любой, если хочешь) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg1:#0f1724;
+      --bg2:#0b1220;
+      --accent:#7c5cff;
+      --muted:#bfc8d9;
+      --card:rgba(255,255,255,0.03);
+      --glass:rgba(255,255,255,0.04);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;
+      background:linear-gradient(160deg,var(--bg1),var(--bg2));
+      color:white;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:980px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:16px;
+      padding:28px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+      border:1px solid rgba(255,255,255,0.03);
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:24px;
+    }
+
+    @media(max-width:860px){
+      .wrap{grid-template-columns:1fr; padding:20px}
+    }
+
+    header h1{
+      margin:0 0 8px 0;
+      font-size:28px;
+      letter-spacing:-0.3px;
+    }
+    header p.lead{
+      margin:0 0 16px 0;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .card{
+      background:var(--card);
+      padding:18px;
+      border-radius:12px;
+      border:1px solid var(--glass);
+    }
+
+    .hero{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .buttons{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:600;
+      text-decoration:none;
+      display:inline-block;
+      border:1px solid transparent;
+      transition:all .18s ease;
+      cursor:pointer;
+      font-size:14px;
+    }
+
+    .btn-primary{
+      background:linear-gradient(90deg,var(--accent), #5a9bff);
+      color:white;
+      box-shadow: 0 6px 18px rgba(124,92,255,0.18);
+      border:1px solid rgba(255,255,255,0.06);
+    }
+    .btn-outline{
+      background:transparent;
+      color:var(--muted);
+      border:1px solid rgba(255,255,255,0.06);
+    }
+    .btn:hover{transform:translateY(-3px)}
+
+    nav.info{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      align-items:flex-start;
+    }
+
+    .avatar{
+      width:68px;
+      height:68px;
+      border-radius:12px;
+      background:linear-gradient(135deg,#ffffff14,#00000009);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:var(--accent);
+      font-size:20px;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    .meta small{color:var(--muted);display:block}
+
+    footer small{color:var(--muted);display:block;margin-top:8px}
+
+    /* простой responsive content */
+    .links{display:flex;gap:8px;flex-wrap:wrap}
+    .chip{
+      padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);font-size:13px;color:var(--muted);
+      border:1px solid rgba(255,255,255,0.02);
+    }
+  </style>
 </head>
 <body>
-    <h1>Привет, мир!</h1>
-    <p>Это мой первый сайт на GitHub Pages 🚀</p>
+  <main class="wrap" role="main">
+
+    <section class="hero">
+      <header>
+        <h1>Привет — я <span style="color:var(--accent)">твоё имя</span></h1>
+        <p class="lead">Небольшая демонстрационная страница. Замени текст, добавь картинки и ссылки.</p>
+      </header>
+
+      <div class="card">
+        <p>Здесь можно написать, чем ты занимаешься или что хочешь показать посетителям.</p>
+        <div class="buttons" style="margin-top:12px">
+          <a class="btn btn-primary" href="#about">Обо мне</a>
+          <a class="btn btn-outline" href="#contacts">Контакты</a>
+        </div>
+      </div>
+
+      <div class="card" id="about" style="margin-top:12px">
+        <h3 style="margin:0 0 8px 0">Обо мне</h3>
+        <p style="margin:0;color:var(--muted)">Короткий абзац про тебя — хобби, проекты, соцсети. Можешь убрать эту секцию или дублировать для портфолио.</p>
+        <div class="links" style="margin-top:12px">
+          <span class="chip">Проект 1</span>
+          <span class="chip">Блог</span>
+          <span class="chip">Контакты</span>
+        </div>
+      </div>
+    </section>
+
+    <aside class="card info" id="contacts">
+      <div style="display:flex;gap:12px;align-items:center">
+        <div class="avatar">А</div>
+        <div class="meta">
+          <strong>Твоё имя</strong>
+          <small>Короткая подпись или роль</small>
+        </div>
+      </div>
+
+      <div style="margin-top:12px">
+        <strong>Email</strong>
+        <div style="color:var(--muted);margin-top:6px">example@mail.com</div>
+      </div>
+
+      <div style="margin-top:12px">
+        <strong>Соцсети</strong>
+        <div style="color:var(--muted);margin-top:6px">
+          <a href="#" style="color:var(--muted);text-decoration:none">Telegram</a> ·
+          <a href="#" style="color:var(--muted);text-decoration:none">VK</a> ·
+          <a href="#" style="color:var(--muted);text-decoration:none">Instagram</a>
+        </div>
+      </div>
+
+      <footer style="margin-top:auto">
+        <small>Сайт создан на GitHub Pages • Автообновление при коммите</small>
+      </footer>
+    </aside>
+
+  </main>
 </body>
 </html>
